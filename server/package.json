@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "axios": "^1.6.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "faker": "^5.5.3",
+    "geolib": "^3.3.4",
+    "indian-cities-database": "^1.0.5",
+    "indian-name-generator": "^4.1.0",
+    "indian-names": "^1.0.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.2",
+    "nodemon": "^3.0.1",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "random-indian-name": "^1.0.0",
+    "xlsx": "^0.18.5"
+  }
+}
