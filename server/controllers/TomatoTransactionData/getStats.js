@@ -1,6 +1,6 @@
 const TomatoTransaction = require("../../models/TomatoTransactionSchema");
 const ApmcSchema = require("../../models/ApmcSchema");
-const UserSchema = require("../../models/userSchema");
+const UserSchema = require("../../models/FarmerSchema");
 
 const GetStatistics = async (req, res) => {
   try {

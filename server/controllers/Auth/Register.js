@@ -1,5 +1,5 @@
 // import React from "react";
-const User = require("../../models/userSchema");
+const User = require("../../models/FarmerSchema");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 

@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/userSchema");
+const User = require("../models/FarmerSchema");
 
 const Authenticate = async (req, res, next) => {
   try {
@@ -11,7 +11,7 @@ const Authenticate = async (req, res, next) => {
       "tokens.token": token,
     });
     if (!rootUser) {
-      throw new Error("User not Found");
+      throw new Error("Farmer not Found");
     }
     req.token = token;
     req.rootUser = rootUser;

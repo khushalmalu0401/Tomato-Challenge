@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 // Define the APMC schema
 const apmcSchema = new mongoose.Schema({
@@ -50,6 +50,7 @@ const apmcSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
 });
 
 apmcSchema.pre("save", async function (next) {

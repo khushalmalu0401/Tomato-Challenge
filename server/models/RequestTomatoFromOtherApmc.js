@@ -10,7 +10,7 @@ const RequestTomatoFromOtherApmcSchema = new mongoose.Schema({
     name: {
       type: String,
       required: true,
-    }
+    },
   },
   apmcProviding: {
     id: {
@@ -20,7 +20,7 @@ const RequestTomatoFromOtherApmcSchema = new mongoose.Schema({
     name: {
       type: String,
       required: true,
-    }
+    },
   },
   weight: {
     type: Number,
@@ -34,6 +34,14 @@ const RequestTomatoFromOtherApmcSchema = new mongoose.Schema({
       return date.toISOString().split("T")[0];
     },
     required: true,
+  },
+  fullfill: {
+    type: Boolean,
+    default: false,
+  },
+  paymentDone: {
+    type: Boolean,
+    default: false,
   },
 });
 

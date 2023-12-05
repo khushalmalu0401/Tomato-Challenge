@@ -47,6 +47,14 @@ const TomatoRequest = new mongoose.Schema({
     },
     required: true,
   },
+  fullfill: {
+    type: Boolean,
+    default: false,
+  },
+  paymentDone: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // Create a model for the tomato data

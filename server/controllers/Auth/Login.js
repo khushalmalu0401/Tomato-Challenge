@@ -1,5 +1,5 @@
 // import React from "react";
-const User = require("../../models/userSchema");
+const User = require("../../models/FarmerSchema");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
@@ -7,10 +7,7 @@ const Login = async (req, res) => {
   try {
     let token;
     const { phone, password } = req.body;
-    if (phone === "admin" && password === "admin") {
-      token = jwt.sign({ phone: phone, role: "admin" }, process.env.SECRET_KEY);
-      return res.json({ token, message: "Admin Signed In Successfully." });
-    }
+    
     if (!phone || !password) {
       return res
         .status(400)
