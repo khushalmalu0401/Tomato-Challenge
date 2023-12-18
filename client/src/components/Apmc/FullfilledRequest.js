@@ -38,7 +38,7 @@ const DataDisplay = () => {
           return response.json();
         })
         .then((jsonData) => {
-          console.log("jsonData", jsonData);
+          // console.log("jsonData", jsonData);
           setData(jsonData["vendorsRequesting"]);
         })
         .catch((error) => {
@@ -62,7 +62,7 @@ const DataDisplay = () => {
           return response.json();
         })
         .then((jsonData) => {
-          console.log("jsonData", jsonData);
+          // console.log("jsonData", jsonData);
           setTomatoRequestedData(jsonData["apmcsRequesting"]);
         })
         .catch((error) => {
@@ -93,7 +93,7 @@ const DataDisplay = () => {
           return item;
         });
         setData(updatedData);
-        console.log("Data updated successfully");
+        // console.log("Data updated successfully");
         toast.success("Data updated successfully");
       } else {
         console.error("Error updating data");
@@ -116,7 +116,7 @@ const DataDisplay = () => {
         // Remove the deleted item from the data displayed in the frontend
         const updatedData = data.filter((item) => item._id !== id);
         setData(updatedData);
-        console.log("Data deleted successfully");
+        // console.log("Data deleted successfully");
         toast.success("Data deleted successfully");
       } else {
         console.error("Error deleting data");

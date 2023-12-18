@@ -19,7 +19,7 @@ const ApmcRegister = () => {
   let name, value;
 
   const handleInputs = (e) => {
-    console.log(e);
+    // console.log(e);
     name = e.target.name;
     value = e.target.value;
 
@@ -60,15 +60,15 @@ const ApmcRegister = () => {
 
     if (res.status === 422) {
       window.alert("Invalid Registration");
-      console.log("Invalid Registration");
+      // console.log("Invalid Registration");
     } else if (res.status === 201) {
       const data = await res.json();
       window.alert("Registration Successful");
-      console.log("Registration Successful");
+      // console.log("Registration Successful");
       navigate("/apmc/login");
     } else {
       window.alert("Registration Error");
-      console.log("Registration Error");
+      // console.log("Registration Error");
     }
   };
 
@@ -242,7 +242,7 @@ const ApmcRegister = () => {
                 />
               </div>
               <p className="mt-3">
-                Already registered? <NavLink to="/login">Login here</NavLink>
+                Already registered? <NavLink to="/apmc/login">Login here</NavLink>
               </p>
             </form>
           </div>

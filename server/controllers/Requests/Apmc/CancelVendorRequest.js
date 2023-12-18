@@ -3,7 +3,7 @@ const TomatoRequestSchema = require("../../../models/TomatoRequest");
 const cancelTomatoRequest = async (req, res) => {
   try {
     const requestId = req.params.id; // Assuming the request ID is provided in the request parameters
-    console.log(requestId)
+    // console.log(requestId)
 
     // Check if the request ID is valid
     if (!requestId) {

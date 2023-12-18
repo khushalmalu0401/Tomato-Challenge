@@ -11,7 +11,7 @@ const VendorRegister = async (req, res) => {
 
   try {
     const vendorExist = await Vendor.findOne({ phone: phone });
-    console.log(vendorExist);
+    // console.log(vendorExist);
 
     if (vendorExist) {
       return res.status(422).json({ error: "Vendor Already Exist" });

@@ -72,6 +72,12 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
+  loadingContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+  },
 }));
 
 const COLORS = [
@@ -187,6 +193,7 @@ const DataDisplay = () => {
   const [totalFarmers, setTotalFarmers] = useState(0);
   const [totalVendors, setTotalVendors] = useState(0);
   const [totalApmcRequesting, setTotalApmcRequesting] = useState(0);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -224,8 +231,9 @@ const DataDisplay = () => {
           return response.json();
         })
         .then((jsonData) => {
-          console.log("jsonData", jsonData);
+          // console.log("jsonData", jsonData);
           setData(jsonData);
+          setLoading(false);
         })
         .catch((error) => {
           console.error("Error fetching or processing data: " + error);
@@ -236,6 +244,17 @@ const DataDisplay = () => {
   }, []);
 
   let serialNo = 1;
+  if (loading) {
+    return (
+      <div
+        className={classes.loadingContainer}
+        // class="spinner-border"
+        // role="status"
+      >
+        <div class="spinner-border" role="status"></div>
+      </div>
+    );
+  }
   return (
     <>
       <div style={{ margin: "30px 100px" }}>

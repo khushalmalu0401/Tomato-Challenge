@@ -75,6 +75,12 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
+  loadingContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+  },
 }));
 
 const COLORS = [
@@ -190,11 +196,11 @@ const Dashboard = () => {
   const [yearlyData, setYearlyData] = useState([]);
   // Define a function to handle year selection
 
-  console.log("months", month);
+  // console.log("months", month);
   const handleYearChange = (event) => {
     setSelectedYear(event.target.value);
-    
   };
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch data when the selected year changes
@@ -213,6 +219,7 @@ const Dashboard = () => {
     })
       .then((response) => {
         setYearlyData(response.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error(error);
@@ -236,7 +243,8 @@ const Dashboard = () => {
           return response.json();
         })
         .then((jsonData) => {
-          console.log(jsonData);
+          // console.log(jsonData);
+          setLoading(false);
         })
         .catch((error) => {
           console.error("Error fetching or processing data: " + error);
@@ -287,7 +295,7 @@ const Dashboard = () => {
         .then((jsonData) => {
           setWholeData(jsonData);
           setApmcMonthlyData(jsonData[new Date().getMonth()].data);
-          console.log(jsonData);
+          // console.log(jsonData);
         })
         .catch((error) => {
           console.error("Error fetching or processing data: " + error);
@@ -313,7 +321,7 @@ const Dashboard = () => {
   ];
 
   const formatDate = (date) => {
-    console.log(date);
+    // console.log(date);
     const originalDate = new Date(date);
     const day = originalDate.getDate();
     const month = originalDate.getMonth() + 1; // Months are zero-indexed
@@ -322,6 +330,17 @@ const Dashboard = () => {
     return formattedDate;
   };
 
+  if (loading) {
+    return (
+      <div
+        className={classes.loadingContainer}
+        // class="spinner-border"
+        // role="status"
+      >
+        <div class="spinner-border" role="status"></div>
+      </div>
+    );
+  }
   return (
     <div className={classes.root}>
       <Grid container spacing={4}>

@@ -21,7 +21,7 @@ const GetApmcDashboard = async (req, res) => {
     if (farmerPhone) {
       const tomatoData = await TomatoData.find({
         "farmer.phone": farmerPhone,
-        // date: today.toISOString(),
+        // date: today.toISOString(), 
       });
       // console.log(tomatoData);
       return res.status(200).json(tomatoData);
@@ -76,7 +76,7 @@ const GetApmcDashboard = async (req, res) => {
           },
         },
       ]);
-      console.log(vendorTomatoRequest);
+      // console.log(vendorTomatoRequest);
 
       const totalTomatoRequestedToday =
         (vendorTomatoRequest.length > 0
@@ -166,7 +166,7 @@ const GetApmcDashboard = async (req, res) => {
         name: selectedOption,
         date: { $gte: today, $lt: tomorrow },
       });
-      console.log(stocksData);
+      // console.log(stocksData);
 
       const stockForApmc = stocksData?.totalStocks
         ? stocksData?.totalStocks

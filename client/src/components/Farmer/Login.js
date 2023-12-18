@@ -34,6 +34,18 @@ const Login = () => {
     }
   };
 
+  const handlePhoneChange = (e) => {
+    const input = e.target.value;
+    // Remove non-numeric characters
+    const numericInput = input.replace(/[^0-9]/g, "");
+    // Limit the input to 10 digits
+    const limitedInput = numericInput.slice(0, 10);
+
+    // Check if the length is within the limit before updating the state
+    if (limitedInput.length <= 10) {
+      setPhone(limitedInput);
+    }
+  };
   return (
     <div className="container">
       <div className="row">
@@ -45,14 +57,15 @@ const Login = () => {
                 Phone
               </label>
               <input
-                type="tel"
+                type="text"
                 id="phone"
                 name="phone"
                 className="form-control"
                 autoComplete="off"
                 placeholder="Your Number"
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onInput={handlePhoneChange}
+                maxLength="10"
                 pattern="[0-9]{10}"
                 required
               />
@@ -86,6 +99,9 @@ const Login = () => {
           </form>
           <p className="mt-3">
             New user? <NavLink to="/signup">Register here</NavLink>
+          </p>
+          <p className="mt-3">
+            Forget Password? <NavLink to="">Reset</NavLink>
           </p>
         </div>
       </div>

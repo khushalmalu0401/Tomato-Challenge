@@ -52,7 +52,7 @@ const generateRandomTransaction = async (date, apmc) => {
 const createRandomTransactionsForDateRange = async (startDate, endDate) => {
   try {
     const apmcs = await APMC.find(); // Get all APMC markets
-    console.log("APMCs:", apmcs);
+    // console.log("APMCs:", apmcs);
 
     const transactions = [];
 
@@ -62,10 +62,10 @@ const createRandomTransactionsForDateRange = async (startDate, endDate) => {
       date.setDate(date.getDate() + 1)
     ) {
       for (const apmc of apmcs) {
-        // const numTransactions = Math.floor(Math.random() * (7 - 3 + 1)) + 3;
-        const numTransactions = 2;
+        const numTransactions = Math.floor(Math.random() * (7 - 3 + 1)) + 3;
+        // const numTransactions = 2;
 
-        console.log(
+        // console.log(
           `Date: ${date.toISOString()}, APMC: ${
             apmc.name
           }, Num Transactions: ${numTransactions}`
@@ -80,9 +80,9 @@ const createRandomTransactionsForDateRange = async (startDate, endDate) => {
     }
 
     await TomatoTransaction.insertMany(transactions);
-    console.log(
-      "Random transactions for the date range inserted successfully."
-    );
+    // // console.log(
+    //   "Random transactions for the date range inserted successfully."
+    // );
   } catch (error) {
     console.error("Error:", error);
   } finally {
@@ -92,6 +92,6 @@ const createRandomTransactionsForDateRange = async (startDate, endDate) => {
 
 // Set your desired start and end dates
 const startDate = new Date("2023-12-5");
-const endDate = new Date("2023-12-6");
+const endDate = new Date("2023-12-20");
 
 createRandomTransactionsForDateRange(startDate, endDate);

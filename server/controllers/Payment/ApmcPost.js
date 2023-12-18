@@ -9,7 +9,7 @@ const FullFillRequest = async (req, res) => {
 
     // Find the tomato request by ID
     const tomatoRequest = await TomatoRequest.findById(requestId);
-    console.log(tomatoRequest);
+    // console.log(tomatoRequest);
 
     if (!tomatoRequest) {
       return res.status(404).json({ error: "Tomato request not found" });

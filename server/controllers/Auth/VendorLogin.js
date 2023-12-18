@@ -7,7 +7,7 @@ const Login = async (req, res) => {
   try {
     // let token;
     const { phone, password } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
 
     if (!phone || !password) {
       return res
@@ -17,7 +17,7 @@ const Login = async (req, res) => {
 
     const vendorLogin = await Vendor.findOne({ phone: phone });
 
-    console.log(vendorLogin);
+    // console.log(vendorLogin);
 
     if (vendorLogin) {
       const isMatch = await bcrypt.compare(password, vendorLogin.password);

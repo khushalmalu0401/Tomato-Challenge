@@ -16,7 +16,7 @@ const PostData = async (req, res) => {
     todaydate,
   } = req.body;
 
-  console.log(req.body);
+  // console.log(req.body);
 
   if (
     !name ||
@@ -39,7 +39,7 @@ const PostData = async (req, res) => {
     dateOnly = new Date(todaydate).toISOString().split("T")[0];
     // dateOnly = date.toISOString().split("T")[0];
   }
-  console.log(dateOnly);
+  // console.log(dateOnly);
 
   let apmcLocation, apmcState;
   await ApmcMarket.findOne({ _id: apmcId })
@@ -49,7 +49,7 @@ const PostData = async (req, res) => {
         apmcState = apmcMarket.state;
         // console.log(apmcMarket);
       } else {
-        console.log("Apmc Market not found");
+        // console.log("Apmc Market not found");
       }
     })
     .catch((error) => {
@@ -63,7 +63,7 @@ const PostData = async (req, res) => {
       if (farmer) {
         farmerId = farmer._id;
       } else {
-        console.log("Farmer not found");
+        // console.log("Farmer not found");
       }
     })
     .catch((error) => {

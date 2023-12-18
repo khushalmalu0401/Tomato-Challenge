@@ -14,17 +14,17 @@ mongoose.connect(
 // Function to aggregate and update data in TomatoStocksInApmc collection
 const updateTomatoStocks = async () => {
   try {
-    console.log("Updating TomatoStocksInApmc collection...");
+    // console.log("Updating TomatoStocksInApmc collection...");
 
     const startDate = new Date("2023-12-5");
-    const endDate = new Date("2023-12-6");
+    const endDate = new Date("2023-12-20");
 
     // Get all distinct dates within the specified range
     const distinctDates = await TomatoTransaction.distinct("date", {
       date: { $gte: startDate, $lte: endDate },
     });
 
-    console.log("Distinct Dates within the date range:", distinctDates);
+    // console.log("Distinct Dates within the date range:", distinctDates);
 
     // Iterate over each date
     for (const currentDate of distinctDates) {
@@ -36,8 +36,8 @@ const updateTomatoStocks = async () => {
         }
       );
 
-      console.log(
-        `Distinct APMC IDs for date ${currentDate}:`,
+      // console.log(
+        // `Distinct APMC IDs for date ${currentDate}:`,
         distinctApmcIds
       );
 
@@ -84,19 +84,19 @@ const updateTomatoStocks = async () => {
             { upsert: true }
           );
 
-          console.log(
+          // console.log(
             `Data updated for APMC ID ${apmcId} on date ${currentDate}. Total Weight: ${totalWeight}, Price: ${price}`
           );
         }
       }
     }
 
-    console.log("Data update completed successfully.");
+    // console.log("Data update completed successfully.");
   } catch (error) {
     console.error("Error:", error);
   } finally {
     mongoose.connection.close();
-    console.log("MongoDB connection closed.");
+    // console.log("MongoDB connection closed.");
   }
 };
 

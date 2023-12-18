@@ -5,7 +5,7 @@ const FullFillRequest = async (req, res) => {
   try {
     const { razorpay_payment_id, razorpay_order_id, razorpay_signature } =
       req.body;
-    console.log(req.body);
+    // console.log(req.body);
     const sign = razorpay_order_id + "|" + razorpay_payment_id;
     const expectedSignature = Crypto.createHmac(
       "sha256",

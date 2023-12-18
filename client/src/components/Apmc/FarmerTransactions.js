@@ -78,7 +78,7 @@ const DataDisplay = () => {
           return response.json();
         })
         .then((jsonData) => {
-          console.log("jsonData", jsonData);
+          // console.log("jsonData", jsonData);
           setData(jsonData.tomatoData);
         })
         .catch((error) => {

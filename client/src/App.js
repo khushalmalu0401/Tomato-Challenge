@@ -46,7 +46,7 @@ const App = () => {
       <Navbar />
       <Routes>
         {/* Login Routes */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />  
         <Route path="/signup" element={<Signup />} />
 
         <Route exact path="/apmc/login" element={<ApmcLogin />} />

@@ -22,7 +22,7 @@ const ApmcList = () => {
   const handleDialogSubmit = async (tomatoWeight) => {
     // Handle the submitted tomato weight here
 
-    console.log("Tomato Weight:", tomatoWeight);
+    // console.log("Tomato Weight:", tomatoWeight);
 
     const res = await fetch("/api/request/vendor", {
       method: "POST",

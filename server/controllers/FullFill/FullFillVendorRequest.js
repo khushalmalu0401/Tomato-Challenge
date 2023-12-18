@@ -38,7 +38,7 @@ const FullFillRequest = async (req, res) => {
       id: apmcId,
     });
 
-    console.log(dailyStock);
+    // console.log(dailyStock);
 
     if (dailyStock) {
       // Subtract the weight from totalStocks

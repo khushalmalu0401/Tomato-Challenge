@@ -11,7 +11,7 @@ const Register = async (req, res) => {
 
   try {
     const adminExist = await Admin.findOne({ email: email });
-    console.log(adminExist);
+    // console.log(adminExist);
 
     if (adminExist) {
       return res.status(422).json({ error: "Admin Already Exist" });
@@ -30,7 +30,7 @@ const Register = async (req, res) => {
       res.status(201).json({ message: "Admin Registered Successfully.." });
     }
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };

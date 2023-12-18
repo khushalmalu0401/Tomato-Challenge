@@ -110,7 +110,7 @@ fs.createReadStream("indian_cities_modified.csv")
         console.error("Error inserting dummy data:", err);
       }
     }
-    console.log("Dummy data insertion completed.");
+    // console.log("Dummy data insertion completed.");
     mongoose.connection.close(); // Close the MongoDB connection when finished
   });
 

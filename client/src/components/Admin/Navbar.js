@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 
 const Navbar = (roleState, setRole) => {
   const token = Cookies.get("token");
-  console.log(token);
+  // console.log(token);
 
   const navigate = useNavigate();
   return (

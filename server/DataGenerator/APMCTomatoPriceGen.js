@@ -32,9 +32,9 @@ db.once("open", async () => {
       try {
         // Save the updated APMC entry
         await apmcEntry.save();
-        console.log(
-          `Updated ${apmcEntry.name} with currentPrice: ${randomPrice}`
-        );
+        // console.log(
+        //   // `Updated ${apmcEntry.name} with currentPrice: ${randomPrice}`
+        // );
       } catch (error) {
         console.error(`Error updating ${apmcEntry.name}:`, error);
       }

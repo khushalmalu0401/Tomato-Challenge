@@ -5,7 +5,7 @@ const TomatoStocksInApmc = require("../../models/TomatoStocksInApmc");
 const FullFillRequest = async (req, res) => {
   try {
     const requestId = req.params.id;
-    console.log(requestId);
+    // console.log(requestId);
 
     // Find the tomato request by ID
     const tomatoRequest = await TomatoRequest.findById(requestId);
@@ -44,7 +44,7 @@ const FullFillRequest = async (req, res) => {
       id: apmcProviding,
     });
 
-    console.log(dailyStock);
+    // console.log(dailyStock);
 
     if (dailyStock) {
       // Subtract the weight from totalStocks

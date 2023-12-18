@@ -44,8 +44,7 @@ import {
   Sector,
 } from "recharts";
 import { useNavigate } from "react-router";
-// import * as XLSX from "xlsx";
-// import { saveAs } from "file-saver";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: "20px 100px",
@@ -72,6 +71,12 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
+  loadingContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+  },
 }));
 
 const COLORS = [
@@ -90,21 +95,6 @@ const chartData = [
   { name: "Jaysingpur", value: 560 },
   { name: "Kolhapur", value: 1560 },
 ];
-
-// const salesData = [
-//   { date: "", price: 2200 },
-//   { month: "Feb", price: 2150 },
-//   { month: "Mar", price: 1866 },
-//   { month: "Apr", price: 2289 },
-//   { month: "May", price: 3566 },
-//   { month: "Jun", price: 4497 },
-//   { month: "Jul", price: 2610 },
-//   { month: "Aug", price: 2467 },
-//   { month: "Sep", price: 2399 },
-//   { month: "Oct", price: 3150 },
-//   { month: "Nov", price: 2950 },
-//   { month: "Dec", price: 3472 },
-// ];
 
 function generatePrices() {
   const salesDataDynamic = [];
@@ -270,13 +260,15 @@ const DataDisplay = () => {
     return formattedDate;
   };
 
+  const [loading, setLoading] = useState(true); // New state for loading
+
   useEffect(() => {
     try {
       fetch(`/api/transactions/farmer?selectedOption=${apmcName}`, {
         method: "get",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Include the token here
+          Authorization: `Bearer ${token}`,
         },
       })
         .then((response) => {
@@ -286,7 +278,6 @@ const DataDisplay = () => {
           return response.json();
         })
         .then((jsonData) => {
-          console.log("jsonData", jsonData);
           setData(jsonData.tomatoData);
           setTotalSupply(jsonData.totalTomatoInApmc);
           setTotalDemand(jsonData.totalTomatoRequestedToday);
@@ -298,6 +289,8 @@ const DataDisplay = () => {
             jsonData.vendorFullfilledTransactionsCount
           );
           setVendorPaidTransactionsCount(jsonData.vendorPaidTransactionsCount);
+
+          setLoading(false); // Set loading to false once data is loaded
         })
         .catch((error) => {
           console.error("Error fetching or processing data: " + error);
@@ -308,6 +301,18 @@ const DataDisplay = () => {
   }, []);
 
   let serialNo = 1;
+
+  if (loading) {
+    return (
+      <div
+        className={classes.loadingContainer}
+        // class="spinner-border"
+        // role="status"
+      >
+        <div class="spinner-border" role="status"></div>
+      </div>
+    );
+  }
   return (
     <>
       <div style={{ margin: "30px 100px" }}>
@@ -447,7 +452,9 @@ const DataDisplay = () => {
                 <Typography variant="h6" gutterBottom>
                   Total Apmc Requesting
                 </Typography>
-                <Typography variant="h4">{totalApmcRequesting ? totalApmcRequesting: 0}</Typography>
+                <Typography variant="h4">
+                  {totalApmcRequesting ? totalApmcRequesting : 0}
+                </Typography>
               </CardContent>
             </Card>
           </Grid>
@@ -500,7 +507,7 @@ const DataDisplay = () => {
                       gutterBottom
                       style={{ marginTop: "20px" }}
                     >
-                      Monthly Tomato Prices (2023)
+                      Last week tomato prices
                     </Typography>
                     <LineChart
                       width={1280}
@@ -530,7 +537,7 @@ const DataDisplay = () => {
                       gutterBottom
                       style={{ marginTop: "20px" }}
                     >
-                      Top Apmcs Demanding Tomato
+                      Last week stocks in APMC
                     </Typography>
                     <BarChart
                       width={1280}

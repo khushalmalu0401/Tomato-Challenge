@@ -72,10 +72,10 @@ const generateRandomTransactions = async () => {
           date: date,
         });
 
-        console.log(`Generated transaction: ${JSON.stringify(transaction)}`);
+        // console.log(`Generated transaction: ${JSON.stringify(transaction)}`);
 
         await transaction.save();
-        console.log(`Saved transaction: ${JSON.stringify(transaction)}`);
+        // console.log(`Saved transaction: ${JSON.stringify(transaction)}`);
       }
     }
   } catch (error) {
@@ -86,13 +86,13 @@ const generateRandomTransactions = async () => {
 const createRandomTransactionsForDateRange = async (startDate, endDate) => {
   try {
     while (startDate <= endDate) {
-      console.log(
+      // console.log(
         `Generating transactions for date: ${startDate.toISOString()}`
       );
       await generateRandomTransactions(startDate, startDate);
       startDate.setDate(startDate.getDate() + 1);
     }
-    console.log(`Transactions inserted successfully.`);
+    // console.log(`Transactions inserted successfully.`);
   } catch (error) {
     console.error("Error:", error);
   } finally {
@@ -102,6 +102,6 @@ const createRandomTransactionsForDateRange = async (startDate, endDate) => {
 
 // Set your desired start and end dates
 const startDate = new Date("2023-12-5");
-const endDate = new Date("2023-12-6");
+const endDate = new Date("2023-12-20");
 
 createRandomTransactionsForDateRange(startDate, endDate);

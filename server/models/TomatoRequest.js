@@ -41,7 +41,7 @@ const TomatoRequest = new mongoose.Schema({
   date: {
     type: Date,
     get: (date) => {
-      console.log("get function called");
+      // console.log("get function called");
       // Format the date as YYYY-MM-DD without trailing zeros
       return date.toISOString().split("T")[0];
     },

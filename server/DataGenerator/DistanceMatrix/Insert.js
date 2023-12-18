@@ -34,7 +34,7 @@ const readAndInsertData = async () => {
     // Insert data into the MongoDB collection
     await DistanceModel.insertMany(data);
 
-    console.log("Data inserted successfully.");
+    // console.log("Data inserted successfully.");
   } catch (error) {
     console.error("Error:", error);
   } finally {

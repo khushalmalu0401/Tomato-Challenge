@@ -14,7 +14,7 @@ const Signup = () => {
   let name, value;
 
   const handleInputs = (e) => {
-    console.log(e);
+    // console.log(e);
     name = e.target.name;
     value = e.target.value;
 
@@ -40,15 +40,15 @@ const Signup = () => {
 
     if (res.status === 422) {
       window.alert("Invalid Registration");
-      console.log("Invalid Registration");
+      // console.log("Invalid Registration");
     } else if (res.status === 201) {
       const data = await res.json();
       window.alert("Registration Successful");
-      console.log("Registration Successful");
+      // console.log("Registration Successful");
       navigate("/login");
     } else {
       window.alert("Registration Error");
-      console.log("Registration Error");
+      // console.log("Registration Error");
     }
   };
 
@@ -137,6 +137,9 @@ const Signup = () => {
               </div>
               <p className="mt-3">
                 Already registered? <NavLink to="/login">Login here</NavLink>
+              </p>
+              <p className="mt-3">
+                Forget Password? <NavLink to="">Reset</NavLink>
               </p>
             </form>
           </div>

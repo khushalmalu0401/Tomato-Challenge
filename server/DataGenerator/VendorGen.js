@@ -62,7 +62,7 @@ const createRandomVendors = async (count) => {
     // console.log(vendor);
     await vendor.save();
   }
-  console.log(`${count} random vendors inserted successfully.`);
+  // console.log(`${count} random vendors inserted successfully.`);
   mongoose.connection.close();
 };
 

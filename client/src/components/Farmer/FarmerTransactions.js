@@ -43,7 +43,7 @@ const DataDisplay = () => {
           return response.json();
         })
         .then((jsonData) => {
-          console.log("jsonData", jsonData);
+          // console.log("jsonData", jsonData);
           setData(jsonData);
         })
         .catch((error) => {
@@ -88,7 +88,7 @@ const DataDisplay = () => {
         // Remove the deleted item from the data displayed in the frontend
         const updatedData = data.filter((item) => item._id !== id);
         setData(updatedData);
-        console.log("Data deleted successfully");
+        // console.log("Data deleted successfully");
         toast.success("Data deleted successfully");
       } else {
         console.error("Error deleting data");
@@ -101,6 +101,7 @@ const DataDisplay = () => {
   };
 
   let serialNo = 1;
+  let serialNo2 = 1;
   return (
     <>
       <div style={{ margin: "30px 100px" }}>
@@ -114,7 +115,7 @@ const DataDisplay = () => {
                 <tr>
                   <th>Serial No</th>
                   <th>APMC Name</th>
-                  <th>Contact</th>
+                  {/* <th>Contact</th> */}
                   <th>Date</th>
                   {/* <th>Time</th> */}
                   <th>Weight</th>
@@ -133,7 +134,7 @@ const DataDisplay = () => {
                     <tr key={item.apmcMarket._id}>
                       <td>{serialNo++}</td>
                       <td>{item.apmcMarket.name}</td>
-                      <td>{item.farmer.phone}</td>
+                      {/* <td>{item.farmer.phone}</td> */}
                       <td>{new Date(item.date).toISOString().split("T")[0]}</td>
                       {/* <td>{item.currentTime}</td> */}
                       <td>{item.weight.toFixed(2)}</td>
@@ -143,6 +144,7 @@ const DataDisplay = () => {
               </tbody>
             </table>
           </div>
+          <h4>Overall Transactions</h4>
           <div className="table-responsive">
             <div></div>
             <table className="table table-bordered table-striped">
@@ -150,7 +152,7 @@ const DataDisplay = () => {
                 <tr>
                   <th>Serial No</th>
                   <th>APMC Name</th>
-                  <th>Contact</th>
+                  {/* <th>Contact</th> */}
                   <th>Date</th>
                   {/* <th>Time</th> */}
                   <th>Weight</th>
@@ -162,9 +164,9 @@ const DataDisplay = () => {
               <tbody>
                 {data.map((item) => (
                   <tr key={item.apmcMarket._id}>
-                    <td>{serialNo++}</td>
+                    <td>{serialNo2++}</td>
                     <td>{item.apmcMarket.name}</td>
-                    <td>{item.farmer.phone}</td>
+                    {/* <td>{item.farmer.phone}</td> */}
                     <td>{new Date(item.date).toISOString().split("T")[0]}</td>
                     {/* <td>{item.currentTime}</td> */}
                     <td>{item.weight.toFixed(2)}</td>

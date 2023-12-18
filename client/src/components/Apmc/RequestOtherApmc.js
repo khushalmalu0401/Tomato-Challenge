@@ -24,7 +24,7 @@ const DataDisplay = () => {
   const handleDialogSubmit = async (tomatoWeight) => {
     // Handle the submitted tomato weight here
 
-    console.log("Tomato Weight:", tomatoWeight);
+    // console.log("Tomato Weight:", tomatoWeight);
 
     const res = await fetch("/api/request/apmc", {
       method: "POST",
@@ -76,7 +76,7 @@ const DataDisplay = () => {
           return response.json();
         })
         .then((jsonData) => {
-          console.log("jsonData", jsonData);
+          // console.log("jsonData", jsonData);
           setApmcWithExcessTomato(jsonData);
           // setData(jsonData);
         })
@@ -99,7 +99,7 @@ const DataDisplay = () => {
         // Remove the deleted item from the data displayed in the frontend
         const updatedData = data.filter((item) => item._id !== id);
         setData(updatedData);
-        console.log("Data deleted successfully");
+        // console.log("Data deleted successfully");
         toast.success("Data deleted successfully");
       } else {
         console.error("Error deleting data");
@@ -134,31 +134,39 @@ const DataDisplay = () => {
                 </tr>
               </thead>
               <tbody>
-                {apmcWithExcessTomato.map((item) => (
-                  <tr key={item.apmc}>
-                    <td>{serialNo++}</td>
-                    <td>{item.apmc}</td>
-                    <td>{item.apmc}</td>
-                    <td>{item.stocks}</td>
-                    <td>{item.demand}</td>
-                    <td>{item.stocks - item.demand}</td>
+                {apmcWithExcessTomato.length !== 0 ? (
+                  apmcWithExcessTomato.map((item) => (
+                    <tr key={item.apmc}>
+                      <td>{serialNo++}</td>
+                      <td>{item.apmc}</td>
+                      <td>{item.apmc}</td>
+                      <td>{item.stocks}</td>
+                      <td>{item.demand}</td>
+                      <td>{item.stocks - item.demand}</td>
 
-                    <td>{item.distance} km</td>
-                    <td>
-                      <button
-                        className="btn btn-success"
-                        onClick={() =>
-                          handleOpenDialog({
-                            name: item.apmc,
-                            // _id: item.apmc,
-                          })
-                        }
-                      >
-                        Request
-                      </button>
+                      <td>{item.distance} km</td>
+                      <td>
+                        <button
+                          className="btn btn-success"
+                          onClick={() =>
+                            handleOpenDialog({
+                              name: item.apmc,
+                              // _id: item.apmc,
+                            })
+                          }
+                        >
+                          Request
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="8" style={{ textAlign: "center" }}>
+                      No data to display
                     </td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           </div>

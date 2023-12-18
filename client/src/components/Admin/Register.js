@@ -168,7 +168,7 @@ const Signup = () => {
                 />
               </div>
               <p className="mt-3">
-                Already registered? <NavLink to="/login">Login here</NavLink>
+                Already registered? <NavLink to="/admin">Login here</NavLink>
               </p>
             </form>
           </div>

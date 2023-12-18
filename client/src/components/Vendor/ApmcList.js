@@ -1,15 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { makeStyles } from "@material-ui/core/styles";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
 import TomatoWeightDialog from "../Vendor/RequestDialog";
+// import {use}
+
+const useStyles = makeStyles((theme) => ({
+  loadingContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+  },
+}));
 
 const ApmcList = () => {
+  const classes = useStyles();
   const [apmcCount, setApmcCount] = useState(0);
   const [apmcList, setApmcList] = useState([]);
   const [apmcSelected, setApmcSelected] = useState("");
   const [apmcSelectedId, setApmcSelectedId] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleOpenDialog = (apmc) => {
     setApmcSelected(apmc.name); // Set the APMC name
@@ -22,7 +35,7 @@ const ApmcList = () => {
   const handleDialogSubmit = async (tomatoWeight) => {
     // Handle the submitted tomato weight here
 
-    console.log("Tomato Weight:", tomatoWeight);
+    // console.log("Tomato Weight:", tomatoWeight);
 
     const res = await fetch("/api/request/vendor", {
       method: "POST",
@@ -73,6 +86,7 @@ const ApmcList = () => {
           setApmcCount(jsonData.apmcCount);
           setApmcList(jsonData.apmcList);
           // setData(jsonData);
+          setLoading(false);
         })
         .catch((error) => {
           console.error("Error fetching or processing data: " + error);
@@ -121,6 +135,17 @@ const ApmcList = () => {
   };
 
   let serialNo = 1;
+  if (loading) {
+    return (
+      <div
+        className={classes.loadingContainer}
+        // class="spinner-border"
+        // role="status"
+      >
+        <div class="spinner-border" role="status"></div>
+      </div>
+    );
+  }
   return (
     <>
       <div style={{ margin: "30px 100px" }}>

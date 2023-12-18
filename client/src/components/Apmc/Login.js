@@ -47,15 +47,14 @@ const APMCLogin = () => {
                 Email
               </label>
               <input
-                type="tel"
+                type="email"
                 id="email"
                 name="email"
                 className="form-control"
                 autoComplete="off"
-                placeholder="Your Number"
+                placeholder="Your Email Address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                pattern="[0-9]{10}"
                 required
               />
             </div>
@@ -87,7 +86,10 @@ const APMCLogin = () => {
             </div>
           </form>
           <p className="mt-3">
-            New user? <NavLink to="/signup">Register here</NavLink>
+            New APMC? <NavLink to="/apmc/register">Register here</NavLink>
+          </p>
+          <p className="mt-3">
+            Forget Password? <NavLink to="">Reset</NavLink>
           </p>
         </div>
       </div>

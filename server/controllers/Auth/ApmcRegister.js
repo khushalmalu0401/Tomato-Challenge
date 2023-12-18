@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 const Register = async (req, res) => {
   const { name, location, pinCode, state, district, email, password, cpassword, phone } =
     req.body;
-    console.log(req.body);
+    // console.log(req.body);
   if (
     !name ||
     !location ||
@@ -23,7 +23,7 @@ const Register = async (req, res) => {
 
   try {
     const apmcExist = await Apmc.findOne({ email: email });
-    console.log(apmcExist);
+    // console.log(apmcExist);
 
     if (apmcExist) {
       return res.status(422).json({ error: "Apmc Already Exist" });

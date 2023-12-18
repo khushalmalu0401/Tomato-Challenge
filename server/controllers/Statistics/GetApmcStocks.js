@@ -70,7 +70,7 @@ const GetApmcSupplyDemandByMonth = async (req, res) => {
         },
       ]).exec();
 
-      console.log(demand);
+      // console.log(demand);
 
       results.push({
         month: months[month],

@@ -26,7 +26,7 @@ const Form = () => {
   let name, value;
 
   const handleInputs = (e) => {
-    console.log(e);
+    // console.log(e);
     name = e.target.name;
     value = e.target.value;
 

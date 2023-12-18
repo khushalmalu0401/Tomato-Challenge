@@ -11,7 +11,7 @@ const Register = async (req, res) => {
 
   try {
     const userExist = await User.findOne({ phone: phone });
-    console.log(userExist);
+    // console.log(userExist);
 
     if (userExist) {
       return res.status(422).json({ error: "User Already Exist" });

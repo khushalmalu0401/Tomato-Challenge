@@ -31,7 +31,7 @@ const RequestTomato = async (req, res) => {
   // Create a new instance of the TomatoData model
   const dateOnly = new Date().toISOString().split("T")[0];
 
-  console.log(dateOnly);
+  // console.log(dateOnly);
 
   let apmcLocation, apmcState, apmcPrice;
   await ApmcMarket.findOne({ _id: apmcId })
@@ -40,14 +40,14 @@ const RequestTomato = async (req, res) => {
         apmcLocation = apmcMarket.location;
         apmcState = apmcMarket.state;
         apmcPrice = apmcMarket.currentPrice;
-        console.log(apmcMarket);
+        // console.log(apmcMarket);
       } else {
-        console.log("Apmc Market not found");
+        // console.log("Apmc Market not found");
       }
     })
     .catch((error) => {
       // Handle any errors that occurred during the query
-      console.error("Error:", error);
+      // console.error("Error:", error);
     });
 
   const tomatoTransData = new TomatoRequest({
@@ -68,7 +68,7 @@ const RequestTomato = async (req, res) => {
   });
 
   // Save the data to the MongoDB collection
-  console.log(apmcId, apmcMarketName, apmcLocation, apmcState);
+  // console.log(apmcId, apmcMarketName, apmcLocation, apmcState);
   await tomatoTransData.save();
 
   res.status(200).json({ message: "Tomato data submitted successfully" });

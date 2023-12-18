@@ -63,7 +63,7 @@ const Home = () => {
   const navigate = useNavigate();
   const token = Cookies.get("token");
   const decodedToken = token && jwt_decode(token);
-  console.log(decodedToken);
+  // console.log(decodedToken);
   // Sample data for the cards
   const cardData = [
     {

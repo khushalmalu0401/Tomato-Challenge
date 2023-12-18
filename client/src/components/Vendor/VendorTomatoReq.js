@@ -40,7 +40,7 @@ const DataDisplay = () => {
           return response.json();
         })
         .then((jsonData) => {
-          console.log("jsonData", jsonData);
+          // console.log("jsonData", jsonData);
           setData(jsonData);
         })
         .catch((error) => {
@@ -66,7 +66,7 @@ const DataDisplay = () => {
         // Remove the deleted item from the data displayed in the frontend
         const updatedData = data.filter((item) => item._id !== id);
         setData(updatedData);
-        console.log("Data deleted successfully");
+        // console.log("Data deleted successfully");
         toast.success("Data deleted successfully");
       } else {
         console.error("Error deleting data");
@@ -79,7 +79,7 @@ const DataDisplay = () => {
   };
   const initPayment = async ({ response, id }) => {
     const paymentData = await response.json();
-    console.log("paymentData", paymentData);
+    // console.log("paymentData", paymentData);
     const options = {
       key: "rzp_test_1c7gU5by6b6C2M", // Enter the Key ID generated from the Dashboard
       amount: paymentData.amount * paymentData.weight, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -112,7 +112,7 @@ const DataDisplay = () => {
             // Remove the deleted item from the data displayed in the frontend
             const updatedData = data.filter((item) => item._id !== id);
             setData(updatedData);
-            console.log(response2);
+            // console.log(response2);
             toast.success("Payment done successfully");
           } else {
             console.error("Error paying");
@@ -152,7 +152,7 @@ const DataDisplay = () => {
         // Remove the deleted item from the data displayed in the frontend
         // const updatedData = data.filter((item) => item._id !== id);
         // setData(updatedData);
-        console.log(response);
+        // console.log(response);
         initPayment({ response, id });
         // toast.success("Payment done success  fully");
       } else {

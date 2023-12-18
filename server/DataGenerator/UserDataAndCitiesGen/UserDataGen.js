@@ -59,7 +59,7 @@ const createRandomUsers = async (count) => {
     // console.log(user);
     await user.save();
   }
-  console.log(`${count} random users inserted successfully.`);
+  // console.log(`${count} random users inserted successfully.`);
   mongoose.connection.close();
 };
 

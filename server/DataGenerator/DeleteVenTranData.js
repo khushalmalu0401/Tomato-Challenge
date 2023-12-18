@@ -25,7 +25,7 @@ const deleteRequestsForDateRange = async () => {
         },
       });
   
-      console.log(`Deleted ${result.deletedCount} requests.`);
+      // console.log(`Deleted ${result.deletedCount} requests.`);
     } catch (error) {
       console.error("Error:", error);
     } finally {

@@ -7,14 +7,14 @@ const GetApmcRequest = async (req, res) => {
   try {
     // Get the APMC name from the request body
     const apmcName = req.query.apmcName;
-    console.log(apmcName);
+    // console.log(apmcName);
     const today = new Date();
     today.setUTCHours(0, 0, 0, 0);
     const tomorrow = new Date(today);
     tomorrow.setUTCDate(today.getUTCDate() + 1);
 
-    console.log("Today:", today.toISOString());
-    console.log("Tomorrow:", tomorrow.toISOString());
+    // console.log("Today:", today.toISOString());
+    // console.log("Tomorrow:", tomorrow.toISOString());
 
     // Search for all tomato requests made by vendors for the given APMC
     const requests = await TomatoRequest.find({

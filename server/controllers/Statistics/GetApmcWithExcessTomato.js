@@ -83,7 +83,7 @@ const GetApmcWithExcessTomato = async (req, res) => {
         .map(async (apmc) => {
           const excessapmc = apmc.apmc.split("-")[1];
 
-          console.log(apmcCity, excessapmc);
+          // console.log(apmcCity, excessapmc);
           if (apmcCity !== excessapmc) {
             const distanceEntry = await DistanceMatrix.findOne({
               $or: [
@@ -93,7 +93,7 @@ const GetApmcWithExcessTomato = async (req, res) => {
             });
 
             const randomDistance = distanceEntry ? distanceEntry.Distance : 620;
-            console.log(apmcCity, excessapmc, randomDistance);
+            // console.log(apmcCity, excessapmc, randomDistance);
             return {
               apmc: apmc.apmc,
               stocks: apmc.stocks,

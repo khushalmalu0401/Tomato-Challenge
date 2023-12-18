@@ -7,7 +7,7 @@ const Apmc = require("../../models/ApmcSchema");
 const GetData = async (req, res) => {
   try {
     const { farmerPhone } = req.params;
-    console.log(farmerPhone);
+    // console.log(farmerPhone);
     const today = new Date();
     today.setUTCHours(0, 0, 0, 0);
 
@@ -40,7 +40,7 @@ const GetData = async (req, res) => {
         },
       },
     ]);
-    console.log(totalProfit);
+    // console.log(totalProfit);
     const totalProfitValue =
       totalProfit.length > 0 ? totalProfit[0].totalProfit : 0;
 

@@ -28,6 +28,18 @@ const About = () => {
           We are a dedicated team passionate about Tomatoes and Agriculture.
         </p>
         <hr className="my-4" />
+        <img src="https://www.viit.ac.in/images/logo.png"></img>
+
+        <h3>Our Team: Ritesh Lade, Khushal Malu, Atharva Patil</h3>
+        <h3>Guided By: Prof. Ratnamala Bhimanpallewar</h3>
+
+        <p>
+          We are the final year students of VIIT from Bachlors of Information
+          Technology Department. We have developed this project as a part of our
+          final year project. We have developed this project under the guidance
+          of Prof. Ratnamala Bhimanpallewar. We are a dedicated team passionate
+          about Tomatoes and Agriculture.
+        </p>
         <p>
           Our mission is to help farmers submit their tomato data, including
           details such as crop weight, price expectations, and more, and connect

@@ -12,7 +12,7 @@ const Navbar = () => {
   } catch (err) {
     role = "defaultRole";
   }
-  console.log(role);
+  // console.log(role);
   const navigate = useNavigate();
   return (
     <>

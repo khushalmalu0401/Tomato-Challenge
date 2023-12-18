@@ -20,12 +20,12 @@ const updateTomatoRequests = async () => {
       { $set: { fullfill: false } }
     );
 
-    console.log("TomatoRequests updated successfully. Matched:", result.n, "Modified:", result.nModified);
+    // console.log("TomatoRequests updated successfully. Matched:", result.n, "Modified:", result.nModified);
   } catch (error) {
     console.error("Error:", error);
   } finally {
     mongoose.connection.close();
-    console.log("MongoDB connection closed.");
+    // console.log("MongoDB connection closed.");
   }
 };
 
