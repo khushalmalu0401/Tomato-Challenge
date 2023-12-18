@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Cookies from "js-cookie";
-import jwtDecode from "jwt-decode";
 
 const VendorLogin = () => {
   const navigate = useNavigate();
